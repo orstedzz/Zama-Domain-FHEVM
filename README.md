@@ -4,7 +4,7 @@ A **Web3 application** that allows users to **buy, check, and manage `.zama` dom
 
 **Website: https://zama-domain-fhevm.vercel.app/**
 
-**Contract: 0x6b5d2E225b36B604F7c55f93B7922c2B46F5940C**
+Contract: 0x6b5d2E225b36B604F7c55f93B7922c2B46F5940C
 ---
 
 ## 🚀 Quick Start
