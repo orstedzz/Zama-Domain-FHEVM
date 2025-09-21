@@ -12,7 +12,7 @@ import { useReadContract } from "wagmi";
 // ⚠️ deploy
 const CONTRACT_ADDRESS = "0x6b5d2E225b36B604F7c55f93B7922c2B46F5940C";
 // ⚠️ build
-import ZamaDomainRegistry from "../../deployments/localhost/ZamaDomainRegistry.json";
+import ZamaDomainRegistry from "@/abi/ZamaDomainRegistry.json";
 
 interface Domain {
   name: string;
