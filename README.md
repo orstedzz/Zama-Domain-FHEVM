@@ -1,93 +1,94 @@
-# FHEVM Hardhat Template
+**# 🌐 Zama Domain Registry
 
-A Hardhat-based template for developing Fully Homomorphic Encryption (FHE) enabled Solidity smart contracts using the
-FHEVM protocol by Zama.
+A **Web3 application** that allows users to **buy, check, and manage `.zama` domains** on the blockchain using **FHEVM (Fully Homomorphic Encryption Virtual Machine)**.**
+**Website: https://zama-domain-fhevm.vercel.app/**
+**Contract: 0x6b5d2E225b36B604F7c55f93B7922c2B46F5940C**
+---
 
-## Quick Start
+## 🚀 Quick Start
 
-For detailed instructions see:
-[FHEVM Hardhat Quick Start Tutorial](https://docs.zama.ai/protocol/solidity-guides/getting-started/quick-start-tutorial)
+### ✅ Requirements
+- **Node.js** v18+  
+- **npm** v9+  
+- **Hardhat** (included in project)  
+- **MetaMask** (for wallet connection)  
+- Access to **Sepolia Testnet** (or Hardhat localhost node)  
 
-### Prerequisites
-
-- **Node.js**: Version 20 or higher
-- **npm or yarn/pnpm**: Package manager
-
-### Installation
-
-1. **Install dependencies**
-
-   ```bash
-   npm install
-   ```
-
-2. **Set up environment variables**
-
-   ```bash
-   npx hardhat vars set MNEMONIC
-
-   # Set your Infura API key for network access
-   npx hardhat vars set INFURA_API_KEY
-
-   # Optional: Set Etherscan API key for contract verification
-   npx hardhat vars set ETHERSCAN_API_KEY
-   ```
-
-3. **Compile and test**
-
-   ```bash
-   npm run compile
-   npm run test
-   ```
-
-4. **Deploy to local network**
-
-   ```bash
-   # Start a local FHEVM-ready node
-   npx hardhat node
-   # Deploy to local network
-   npx hardhat deploy --network localhost
-   ```
-
-5. **Deploy to Sepolia Testnet**
-
-   ```bash
-   # Deploy to Sepolia
-   npx hardhat deploy --network sepolia
-   # Verify contract on Etherscan
-   npx hardhat verify --network sepolia <CONTRACT_ADDRESS>
-   ```
-
-6. **Test on Sepolia Testnet**
-
-   ```bash
-   # Once deployed, you can run a simple test on Sepolia.
-   npx hardhat test --network sepolia
-   ```
-
-## 📁 Project Structure
-
-```
-fhevm-hardhat-template/
-├── contracts/           # Smart contract source files
-│   └── FHECounter.sol   # Example FHE counter contract
-├── deploy/              # Deployment scripts
-├── tasks/               # Hardhat custom tasks
-├── test/                # Test files
-├── hardhat.config.ts    # Hardhat configuration
-└── package.json         # Dependencies and scripts
+### 📦 Installation
+Clone the repository and install dependencies:
+```bash
+git clone https://github.com/<your-username>/Zama-Domain-FHEVM.git
+cd Zama-Domain-FHEVM
+npm install
 ```
 
-## 📜 Available Scripts
+### 🔐 Environment Setup
+Create an `.env` file in the project root:
+```bash
+SEPOLIA_RPC_URL=https://sepolia.infura.io/v3/<your-infura-id>
+PRIVATE_KEY=<your-wallet-private-key>
+ETHERSCAN_API_KEY=<your-etherscan-key>
+```
+###🔨 Build & Test
 
-| Script             | Description              |
-| ------------------ | ------------------------ |
-| `npm run compile`  | Compile all contracts    |
-| `npm run test`     | Run all tests            |
-| `npm run coverage` | Generate coverage report |
-| `npm run lint`     | Run linting checks       |
-| `npm run clean`    | Clean build artifacts    |
+#Compile contracts:
+```bash
+npx hardhat compile
+```
+#Run a local blockchain node:
+```bash
+npx hardhat node
+```
+#Deploy contracts to localhost:
+```bash
+npx hardhat deploy --network localhost
+```
+#Run frontend (in development mode):
+```bash
+cd frontend
+npm run dev
+```
 
+###📡 Deploy
+
+#Deploy to Sepolia testnet:
+```bash
+npx hardhat deploy --network sepolia
+```
+Latest deployed contract:
+```bash
+ZamaDomainRegistry (Sepolia)
+0x6b5d2E225b36B604F7c55f93B7922c2B46F5940C
+```
+###📁 Project Structure
+```bash
+Zama-Domain-FHEVM/
+│── contracts/            # Solidity smart contracts
+│   └── ZamaDomainRegistry.sol
+│── deploy/               # Deployment scripts
+│── tasks/                # Hardhat custom tasks
+│── frontend/             # Next.js + Wagmi frontend
+│   ├── app/              # Next.js App Router pages
+│   ├── components/       # React components (UI, Wallet, Domain modules)
+│   ├── lib/              # Wagmi config, utils
+│   └── abi/              # Contract ABIs
+│── hardhat.config.ts     # Hardhat configuration
+│── package.json
+└── README.md
+```
+###🧰 NPM Scripts
+#Root project
+```bash
+npm run compile   # Compile smart contracts
+npm run deploy    # Deploy contracts
+npm run test      # Run Hardhat tests
+```
+#Frontend
+```bash
+npm run dev       # Start Next.js dev server
+npm run build     # Build production bundle
+npm run start     # Run production server
+```
 ## 📚 Documentation
 
 - [FHEVM Documentation](https://docs.zama.ai/fhevm)
@@ -99,12 +100,6 @@ fhevm-hardhat-template/
 
 This project is licensed under the BSD-3-Clause-Clear License. See the [LICENSE](LICENSE) file for details.
 
-## 🆘 Support
-
-- **GitHub Issues**: [Report bugs or request features](https://github.com/zama-ai/fhevm/issues)
-- **Documentation**: [FHEVM Docs](https://docs.zama.ai)
-- **Community**: [Zama Discord](https://discord.gg/zama)
-
 ---
-
-**Built with ❤️ by the Zama team**
+Discord: orsted_z
+> ✍️ Signed with GPG by [@orstedzz](https://github.com/orstedzz)
