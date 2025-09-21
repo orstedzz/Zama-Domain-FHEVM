@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ShoppingCart, Coins } from "lucide-react";
 import { motion } from "framer-motion";
-import { useWriteContract, useWaitForTransactionReceipt } from "wagmi";
+import { useWriteContract, useWaitForTransactionReceipt, useAccount } from "wagmi";
 import { parseEther } from "viem";
 
 // ⚠️ deploy
@@ -15,11 +15,8 @@ const CONTRACT_ADDRESS = "0x6b5d2E225b36B604F7c55f93B7922c2B46F5940C";
 // ⚠️ import ABI 
 import ZamaDomainRegistry from "@/abi/ZamaDomainRegistry.json";
 
-interface DomainPurchaseProps {
-  isConnected: boolean;
-}
-
-export function DomainPurchase({ isConnected }: DomainPurchaseProps) {
+export function DomainPurchase() {
+  const { isConnected } = useAccount();
   const [domainName, setDomainName] = useState("");
   const [duration, setDuration] = useState(1);
 

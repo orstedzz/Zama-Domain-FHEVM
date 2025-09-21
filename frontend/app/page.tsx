@@ -86,8 +86,8 @@ export default function DomainRegistryPage() {
           transition={{ delay: 0.3 }}
           className="space-y-8"
         >
-          <DomainSearch isConnected={isConnected} />
-          <DomainPurchase isConnected={isConnected} />
+          <DomainSearch />
+          <DomainPurchase />
         </motion.div>
 
         {/* My Domains */}
