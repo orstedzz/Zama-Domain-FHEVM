@@ -1,7 +1,9 @@
-**# 🌐 Zama Domain Registry
+# 🌐 Zama Domain Registry
 
-A **Web3 application** that allows users to **buy, check, and manage `.zama` domains** on the blockchain using **FHEVM (Fully Homomorphic Encryption Virtual Machine)**.**
+A **Web3 application** that allows users to **buy, check, and manage `.zama` domains** on the blockchain using **FHEVM (Fully Homomorphic Encryption Virtual Machine)**.
+
 **Website: https://zama-domain-fhevm.vercel.app/**
+
 **Contract: 0x6b5d2E225b36B604F7c55f93B7922c2B46F5940C**
 ---
 
