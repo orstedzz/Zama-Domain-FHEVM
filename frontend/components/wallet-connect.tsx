@@ -9,11 +9,11 @@ import { injected } from "wagmi/connectors";
 
 export function WalletConnect() {
   const { address, isConnected } = useAccount();
-  const { connect, isPending } = useConnect({ connector: injected() });
+  const { connect, connectors, isPending } = useConnect();
   const { disconnect } = useDisconnect();
 
-  const formatAddress = (address: string) => {
-    return `${address.slice(0, 6)}...${address.slice(-4)}`;
+  const formatAddress = (addr: string) => {
+    return `${addr.slice(0, 6)}...${addr.slice(-4)}`;
   };
 
   if (isConnected && address) {
@@ -37,7 +37,7 @@ export function WalletConnect() {
 
   return (
     <Button
-      onClick={() => connect()}
+      onClick={() => connect({ connector: connectors.find((c) => c.id === "injected") || injected() })}
       disabled={isPending}
       className="bg-primary hover:bg-primary/90 text-primary-foreground"
     >

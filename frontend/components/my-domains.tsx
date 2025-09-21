@@ -4,8 +4,7 @@ import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { ExternalLink, Globe } from "lucide-react";
+import { Globe } from "lucide-react";
 import { motion } from "framer-motion";
 import { useReadContract } from "wagmi";
 
@@ -13,6 +12,12 @@ import { useReadContract } from "wagmi";
 const CONTRACT_ADDRESS = "0x6b5d2E225b36B604F7c55f93B7922c2B46F5940C";
 // ⚠️ build
 import ZamaDomainRegistry from "@/abi/ZamaDomainRegistry.json";
+
+interface RawDomain {
+  name: string;
+  expiresAt: bigint;
+  owner: string;
+}
 
 interface Domain {
   name: string;
@@ -39,7 +44,7 @@ export function MyDomains({ account }: MyDomainsProps) {
 
   useEffect(() => {
     if (data && Array.isArray(data)) {
-      const parsed: Domain[] = (data as any[]).map((d: any) => ({
+      const parsed: Domain[] = (data as RawDomain[]).map((d) => ({
         name: `${d.name}.zama`,
         expiresAt: Number(d.expiresAt),
         owner: d.owner,
