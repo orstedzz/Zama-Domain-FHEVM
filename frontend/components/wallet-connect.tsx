@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Wallet, ChevronDown } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, type HTMLMotionProps } from "framer-motion";
 import { useAccount, useConnect, useDisconnect } from "wagmi";
 import { injected } from "wagmi/connectors";
 
@@ -19,6 +19,7 @@ export function WalletConnect() {
   if (isConnected && address) {
     return (
       <motion.div
+        {...({} as HTMLMotionProps<"div">)}
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         className="flex items-center gap-3"
