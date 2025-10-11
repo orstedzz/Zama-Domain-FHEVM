@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -20,6 +20,11 @@ export function DomainSearch() {
   const { isConnected } = useAccount();
   const [domainName, setDomainName] = useState("");
   const [submittedName, setSubmittedName] = useState("");
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // contract check availability
   const { data, isLoading } = useReadContract({
@@ -43,6 +48,8 @@ export function DomainSearch() {
   };
 
   const availability = data === undefined ? null : data ? "available" : "taken";
+
+  if (!mounted) return null;
 
   return (
     <Card className="bg-card border-border shadow-lg">

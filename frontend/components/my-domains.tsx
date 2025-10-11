@@ -25,13 +25,20 @@ interface Domain {
   owner: string;
 }
 
+
 interface MyDomainsProps {
   account: string;
 }
 
+
 export function MyDomains({ account }: MyDomainsProps) {
   const [domains, setDomains] = useState<Domain[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   //  domains contract
   const { data, isLoading: isFetching } = useReadContract({
@@ -70,7 +77,7 @@ export function MyDomains({ account }: MyDomainsProps) {
     return d.toISOString().split("T")[0];
   };
 
-  if (isLoading || isFetching) {
+  if (!mounted || isLoading || isFetching) {
     return (
       <Card className="bg-card border-border shadow-lg">
         <CardHeader>

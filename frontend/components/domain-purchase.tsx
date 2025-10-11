@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { ShoppingCart, Coins } from "lucide-react";
 import { motion } from "framer-motion";
-import { useWriteContract, useWaitForTransactionReceipt, useAccount } from "wagmi";
+import { useWriteContract, useWaitForTransactionReceipt, useAccount, useSwitchChain } from "wagmi";
 import { parseEther } from "viem";
 
 // ⚠️ deploy
@@ -17,8 +17,14 @@ import ZamaDomainRegistry from "@/abi/ZamaDomainRegistry.json";
 
 export function DomainPurchase() {
   const { isConnected } = useAccount();
+  const { chains, switchChain } = useSwitchChain();
   const [domainName, setDomainName] = useState("");
   const [duration, setDuration] = useState(1);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const pricePerYear = 0.001; // ETH
   const totalPrice = duration * pricePerYear;
@@ -33,6 +39,17 @@ export function DomainPurchase() {
   const purchaseDomain = async () => {
     if (!domainName.trim() || !isConnected) return;
 
+    // Tự động switch sang Sepolia nếu chưa đúng chain
+    const sepoliaChain = chains.find((c) => c.id === 11155111);
+    if (switchChain && sepoliaChain) {
+      try {
+        await switchChain({ chainId: sepoliaChain.id });
+      } catch {
+        // user từ chối hoặc extension không hỗ trợ
+        return;
+      }
+    }
+
     writeContract({
       address: CONTRACT_ADDRESS as `0x${string}`,
       abi: ZamaDomainRegistry.abi,
@@ -41,6 +58,8 @@ export function DomainPurchase() {
       value: parseEther(totalPrice.toString()),
     });
   };
+
+  if (!mounted) return null;
 
   return (
     <Card className="bg-card border-border shadow-lg">

@@ -1,67 +1,79 @@
-# 🌐 Zama Domain Registry
 
-A **Web3 application** that allows users to **buy, check, and manage `.zama` domains** on the blockchain using **FHEVM (Fully Homomorphic Encryption Virtual Machine)**.
+# � Zama Domain FHEVM DApp
 
-**Website: https://zama-domain-fhevm.vercel.app/**
+Zama Domain FHEVM is a Web3 decentralized application (DApp) that enables users to register, manage, and trade `.zama` blockchain domains with privacy powered by Fully Homomorphic Encryption (FHEVM). The project demonstrates seamless integration of FHEVM smart contracts and a modern, user-friendly frontend.
+
+**Live Demo:** https://zama-domain-fhevm.vercel.app/
+
+---
+
+## 📝 Project Description
+
+**Zama Domain FHEVM** allows anyone to:
+- Register and own unique `.zama` domains on-chain
+- Search, check availability, and purchase domains with a single click
+- Manage owned domains in a personal dashboard
+- Experience privacy-preserving blockchain operations using FHEVM
+- Connect with MetaMask, OKX, or Rabbit wallets (Sepolia testnet)
+
+The DApp is built with Next.js 15, React 19, wagmi v2, ethers.js, and integrates Zama's FHEVM for future encrypted domain data support. The UI is designed to be warm, friendly, and accessible, with seasonal effects (e.g., snow in winter).
 
 ---
 
 ## 🚀 Quick Start
-Contract: 0x6b5d2E225b36B604F7c55f93B7922c2B46F5940C
-### ✅ Requirements
-- **Node.js** v18+  
-- **npm** v9+  
-- **Hardhat** (included in project)  
-- **MetaMask** (for wallet connection)  
-- Access to **Sepolia Testnet** (or Hardhat localhost node)  
 
-### 📦 Installation
-Clone the repository and install dependencies:
+**Deployed Contract (Sepolia):** `0x6b5d2E225b36B604F7c55f93B7922c2B46F5940C`
+
+### Requirements
+- Node.js v18+
+- npm v9+
+- Hardhat (included)
+- MetaMask/OKX/Rabbit wallet extension
+- Sepolia Testnet access
+
+### Installation
 ```bash
-git clone https://github.com/<your-username>/Zama-Domain-FHEVM.git
+git clone https://github.com/orstedzz/Zama-Domain-FHEVM.git
 cd Zama-Domain-FHEVM
 npm install
 ```
 
-### 🔐 Environment Setup
-Create an `.env` file in the project root:
+### Environment Setup
+Create a `.env` file in the project root:
 ```bash
 SEPOLIA_RPC_URL=https://sepolia.infura.io/v3/<your-infura-id>
 PRIVATE_KEY=<your-wallet-private-key>
 ETHERSCAN_API_KEY=<your-etherscan-key>
 ```
-###🔨 Build & Test
 
-#Compile contracts:
+### Build & Test
+Compile contracts:
 ```bash
 npx hardhat compile
 ```
-#Run a local blockchain node:
+Run a local blockchain node:
 ```bash
 npx hardhat node
 ```
-#Deploy contracts to localhost:
+Deploy contracts to localhost:
 ```bash
 npx hardhat deploy --network localhost
 ```
-#Run frontend (in development mode):
+Run frontend (development mode):
 ```bash
 cd frontend
 npm run dev
 ```
 
-###📡 Deploy
-
-#Deploy to Sepolia testnet:
+### Deploy
+Deploy to Sepolia testnet:
 ```bash
 npx hardhat deploy --network sepolia
 ```
-Latest deployed contract:
-```bash
-ZamaDomainRegistry (Sepolia)
-0x6b5d2E225b36B604F7c55f93B7922c2B46F5940C
-```
-###📁 Project Structure
+
+---
+
+## 📁 Project Structure
 ```bash
 Zama-Domain-FHEVM/
 │── contracts/            # Solidity smart contracts
@@ -77,20 +89,22 @@ Zama-Domain-FHEVM/
 │── package.json
 └── README.md
 ```
-###🧰 NPM Scripts
-#Root project
+
+## 🧰 NPM Scripts
+**Root project:**
 ```bash
 npm run compile   # Compile smart contracts
 npm run deploy    # Deploy contracts
 npm run test      # Run Hardhat tests
 ```
-#Frontend
+**Frontend:**
 ```bash
 npm run dev       # Start Next.js dev server
 npm run build     # Build production bundle
 npm run start     # Run production server
 ```
-## 📚 Documentation
+
+## 📚 Documentation & Resources
 
 - [FHEVM Documentation](https://docs.zama.ai/fhevm)
 - [FHEVM Hardhat Setup Guide](https://docs.zama.ai/protocol/solidity-guides/getting-started/setup)
@@ -103,4 +117,4 @@ This project is licensed under the BSD-3-Clause-Clear License. See the [LICENSE]
 
 ---
 Discord: orsted_z
-> ✍️ Signed with GPG by [@orstedzz](https://github.com/orstedzz)
+> ✍️ Maintained by [@orstedzz](https://github.com/orstedzz)
