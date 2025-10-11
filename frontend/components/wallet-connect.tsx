@@ -104,7 +104,7 @@ export function WalletConnect() {
         className="bg-gradient-to-r from-blue-300 via-indigo-200 to-white text-blue-900 font-semibold rounded-full px-6 py-2 shadow-lg hover:from-blue-400 hover:to-indigo-300 transition-all duration-200 border border-blue-100"
       >
         <span className="mr-2">❄️</span>
-        {isPending ? "Đang kết nối..." : "Kết nối ví"}
+  {isPending ? "Connecting..." : "Connect Wallet"}
       </Button>
       <Dialog.Root open={open} onOpenChange={setOpen}>
         <Dialog.Portal>
@@ -115,9 +115,9 @@ export function WalletConnect() {
               <Snowfall count={40} />
             </div>
             <Dialog.Content className="fixed left-1/2 top-1/2 z-50 w-full max-w-xs -translate-x-1/2 -translate-y-1/2 rounded-3xl bg-gradient-to-br from-blue-50 via-indigo-50 to-white p-6 shadow-2xl border-2 border-blue-200">
-            <Dialog.Title className="text-xl font-bold text-blue-700 mb-2 text-center flex items-center justify-center gap-2">Chọn ví <span>❄️</span></Dialog.Title>
+            <Dialog.Title className="text-xl font-bold text-blue-700 mb-2 text-center flex items-center justify-center gap-2">Select Wallet <span>❄️</span></Dialog.Title>
             <p className="text-xs text-indigo-500 mb-4 text-center bg-blue-50 rounded-lg px-2 py-1">
-              ⚠️ Nếu bạn có nhiều extension ví (MetaMask, OKX, Rabbit), hãy tắt các ví không dùng để đảm bảo giao dịch đi đúng ví bạn chọn!
+              ⚠️ If you have multiple wallet extensions (MetaMask, OKX, Rabbit), please disable the ones you are not using to ensure your transaction goes through the correct wallet!
             </p>
             <div className="flex flex-col gap-3">
               {["MetaMask", "OKX Wallet", "Rabbit Wallet"].map((label) => {
@@ -163,7 +163,7 @@ export function WalletConnect() {
               })}
             </div>
             <Dialog.Close asChild>
-              <Button variant="ghost" className="w-full mt-6 rounded-xl text-indigo-500 font-semibold border border-indigo-200 bg-indigo-50 hover:bg-indigo-100 transition-all">Huỷ</Button>
+              <Button variant="ghost" className="w-full mt-6 rounded-xl text-indigo-500 font-semibold border border-indigo-200 bg-indigo-50 hover:bg-indigo-100 transition-all">Cancel</Button>
             </Dialog.Close>
             </Dialog.Content>
             <style jsx global>{`
